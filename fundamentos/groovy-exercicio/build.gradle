@@ -15,17 +15,22 @@ task stringsAndTypes << {
 
 
     // TODO: Crie uma variável chamada foo e atribua a ela o valor 4.2
-
+        def foo = 4.2
     // TODO: Imprima o valor e a classe de foo
-
+        println "Tipo de foo: ${foo.class} valor: $foo"
     // TODO: Use interpolação de strings para exibir a raiz de 127
     // Dica: http://docs.oracle.com/javase/7/docs/api/java/lang/Math.html
-
+        def raiz = 127
+        println "Raiz de 127 = ${Math.sqrt(raiz)}"
     // TODO: Atribua a data corrente para foo e a imprima, com o seu tipo logo a seguir.
     // Dica: http://docs.oracle.com/javase/7/docs/api/java/util/package-summary.html
-
+        def foo1 = new java.util.Date()
+    //def foo1 = (System.currentTimeMillis())
+        println "Valor de foo com data corrente: $foo1 Tipo de foo: ${foo1.class}"
     // TODO: Utilize substring para extrair Jeremy da seguinte string:
     def hello = "Hello, Jeremy.";
+    System.out.println(hello.substring(7,13));
+
 
     
 
@@ -34,14 +39,20 @@ task stringsAndTypes << {
 task closures << {
     // TODO: Declare uma closure que pega dois argumentos e os soma.
     // DICA: http://www.groovy-lang.org/closures.html
+    def closuresomavalor = { int a, int b -> a+b }
 
     // TODO: Chama sua closure com os argumentos 17 e 25, e imprima o resultado.
     // Cuidado: `println addTwo 17, 25` é ambíguo.
+    println "Valor da Soma:"
+    println closuresomavalor(17,25)
+
 }
 
 task lists << {
     // TODO: Declare uma lista com 5 strings
-
+    def myList = ["andoird", "iphone", "wp","new","generation"]
     // TODO: Print cada string com letras maiusculas
-
+    //def printItem = {item -> println "$item"}
+    def printItem = {item -> println item.toUpperCase() }
+    myList.each(printItem)
 }
